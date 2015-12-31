@@ -8,12 +8,8 @@ RUN apt-get -qq update -y && apt-get -qq install wget openjdk-7-jdk unzip -y
 # Download and extract android sdk
 RUN cd /usr/local/ && wget -q http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz && tar xf android-sdk_r24.3.4-linux.tgz
 
-# Install Android tools
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter tools --no-ui --force -a
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter platform-tools --no-ui --force -a
-
-# Install Android SDK Version 22
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter android-22 --no-ui --force -a
+# Install Android tools & sdk
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools,platform-tools,build-tools-21.1.2,android-22
 
 # Install Apache-Ant
 RUN cd /usr/local/ && wget -q http://mirrors.muzzy.org.uk/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz && tar xf apache-ant-1.9.6-bin.tar.gz
