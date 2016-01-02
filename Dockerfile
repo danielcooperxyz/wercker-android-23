@@ -10,7 +10,7 @@ RUN apt-get -qq update -y && apt-get -qq install wget openjdk-7-jdk unzip -y
 RUN cd /usr/local/ && wget -q http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xf android-sdk_r24.4.1-linux.tgz
 
 # Install Android tools & sdk
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools,platform-tools,build-tools-21.1.2,extra-android-support,android-23
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools,platform-tools,build-tools-23.0.2,extra-android-support,android-23
 
 # Install Apache-Ant
 RUN cd /usr/local/ && wget -q http://mirrors.muzzy.org.uk/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz && tar xf apache-ant-1.9.6-bin.tar.gz
