@@ -3,6 +3,7 @@
 
 FROM ubuntu:14.04
 
+# Update packages and install wget, java, and unzip
 RUN apt-get -qq update -y && apt-get -qq install wget openjdk-7-jdk unzip -y
 
 # Download and extract android sdk
