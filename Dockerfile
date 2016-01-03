@@ -4,19 +4,34 @@
 FROM ubuntu:14.04
 
 # Update packages and install wget, java, and unzip
-RUN apt-get -qq update -y && apt-get -qq install wget openjdk-7-jdk unzip -y
+RUN apt-get -qq update -y && apt-get -qq install -y \
+		wget \
+		openjdk-7-jdk \
+		unzip
 
 # Download and extract android sdk
-RUN cd /usr/local/ && wget -q http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xf android-sdk_r24.4.1-linux.tgz
+RUN cd /usr/local/ && wget -q \
+		http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz \
+	&& tar xf android-sdk_r24.4.1-linux.tgz
 
 # Install Android tools & sdk
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools,platform-tools,build-tools-23.0.2,extra-android-support,extra-android-m2repository,android-23
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter \
+		tools, \
+		platform-tools, \
+		build-tools-23.0.2, \
+		extra-android-support, \
+		extra-android-m2repository, \
+		android-23
 
 # Install Apache-Ant
-RUN cd /usr/local/ && wget -q http://mirrors.muzzy.org.uk/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz && tar xf apache-ant-1.9.6-bin.tar.gz
+RUN cd /usr/local/ \
+	&& wget -q http://mirrors.muzzy.org.uk/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz \
+	&& tar xf apache-ant-1.9.6-bin.tar.gz
 
 # Install Gradle
-RUN cd /usr/local/ && wget -q http://services.gradle.org/distributions/gradle-2.2-all.zip && unzip -o gradle-2.2-all.zip
+RUN cd /usr/local/ \
+	&& wget -q http://services.gradle.org/distributions/gradle-2.2-all.zip \
+	&& unzip -o gradle-2.2-all.zip
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
