@@ -4,7 +4,8 @@
 FROM ubuntu:14.04
 
 # Update packages and install dependencies
-RUN apt-get -qq update -y && apt-get -qq install -y \
+RUN apt-get -qq update -y \
+	&& apt-get -qq install -y \
 		lib32stdc++6 \
 		lib32z1 \
 		openjdk-7-jdk \
@@ -12,18 +13,12 @@ RUN apt-get -qq update -y && apt-get -qq install -y \
 		wget
 
 # Download and extract android sdk
-RUN cd /usr/local/ && wget -q \
-		http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz \
+RUN cd /usr/local/ \
+	&& wget -q http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz \
 	&& tar xf android-sdk_r24.4.1-linux.tgz
 
 # Install Android tools & sdk
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter \
-		tools, \
-		platform-tools, \
-		build-tools-23.0.2, \
-		extra-android-support, \
-		extra-android-m2repository, \
-		android-23
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools,platform-tools,build-tools-23.0.2,extra-android-support,extra-android-m2repository,android-23
 
 # Install Apache-Ant
 RUN cd /usr/local/ \
