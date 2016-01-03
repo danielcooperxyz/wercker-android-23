@@ -3,11 +3,13 @@
 
 FROM ubuntu:14.04
 
-# Update packages and install wget, java, and unzip
+# Update packages and install dependencies
 RUN apt-get -qq update -y && apt-get -qq install -y \
-		wget \
+		lib32stdc++6 \
+		lib32z1 \
 		openjdk-7-jdk \
-		unzip
+		unzip \ 
+		wget
 
 # Download and extract android sdk
 RUN cd /usr/local/ && wget -q \
