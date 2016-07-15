@@ -8,4 +8,4 @@ Simple dockerfile for use with wercker to compile android 6.0 projects
 	* Build Tools 23.0.2
 	* Android 23
 * Ant 1.9.5
-* Gradle 2.2
+* Gradle 2.10

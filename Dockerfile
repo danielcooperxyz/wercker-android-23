@@ -28,7 +28,7 @@ RUN cd /usr/local/ \
 # Install Gradle
 RUN cd /usr/local/ \
 	&& wget -q http://services.gradle.org/distributions/gradle-2.10-all.zip \
-	&& unzip -o gradle-2.2-all.zip
+	&& unzip -o gradle-2.10-all.zip
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
