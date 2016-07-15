@@ -27,13 +27,13 @@ RUN cd /usr/local/ \
 
 # Install Gradle
 RUN cd /usr/local/ \
-	&& wget -q http://services.gradle.org/distributions/gradle-2.2-all.zip \
+	&& wget -q http://services.gradle.org/distributions/gradle-2.10-all.zip \
 	&& unzip -o gradle-2.2-all.zip
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV ANT_HOME /usr/local/apache-ant-1.9.6
-ENV GRADLE_HOME /usr/local/gradle-2.2
+ENV GRADLE_HOME /usr/local/gradle-2.10
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV PATH $PATH:$ANT_HOME/bin
@@ -43,4 +43,4 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 # Clean up
 RUN rm -rf /usr/local/android-sdk_r24.4.1-linux.tgz
 RUN rm -rf /usr/local/apache-ant-1.9.6-bin.tar.gz
-RUN rm -rf /usr/local/gradle-2.2-all.zip
+RUN rm -rf /usr/local/gradle-2.10-all.zip
