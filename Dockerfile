@@ -22,8 +22,8 @@ RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --for
 
 # Install Apache-Ant
 RUN cd /usr/local/ \
-	&& wget -q http://mirrors.muzzy.org.uk/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz \
-	&& tar xf apache-ant-1.9.6-bin.tar.gz
+	&& wget -q http://mirrors.muzzy.org.uk/apache/ant/binaries/apache-ant-1.9.7-bin.tar.gz \
+	&& tar xf apache-ant-1.9.7-bin.tar.gz
 
 # Install Gradle
 RUN cd /usr/local/ \
@@ -32,7 +32,7 @@ RUN cd /usr/local/ \
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV ANT_HOME /usr/local/apache-ant-1.9.6
+ENV ANT_HOME /usr/local/apache-ant-1.9.7
 ENV GRADLE_HOME /usr/local/gradle-2.10
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
@@ -42,5 +42,5 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 
 # Clean up
 RUN rm -rf /usr/local/android-sdk_r24.4.1-linux.tgz
-RUN rm -rf /usr/local/apache-ant-1.9.6-bin.tar.gz
+RUN rm -rf /usr/local/apache-ant-1.9.7-bin.tar.gz
 RUN rm -rf /usr/local/gradle-2.10-all.zip
